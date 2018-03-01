@@ -1,0 +1,19 @@
+{
+  "name": "pop-tap",
+  "version": "1.0.0",
+  "description": "a simple game",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CrazyVirusss/pop-tap.git"
+  },
+  "author": "CrazyVirus",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CrazyVirusss/pop-tap/issues"
+  },
+  "homepage": "https://github.com/CrazyVirusss/pop-tap#readme"
+}
