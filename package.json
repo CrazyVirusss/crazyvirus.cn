@@ -1,7 +1,7 @@
 {
-  "name": "pop-tap",
+  "name": "crazyvirus-space",
   "version": "1.0.0",
-  "description": "a simple game",
+  "description": "crazyvirus self network",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "type": "git",
     "url": "git+https://github.com/CrazyVirusss/pop-tap.git"
   },
-  "author": "CrazyVirus",
+  "author": "CrazyVirusss <specialweiyu@gmail.com>",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/CrazyVirusss/pop-tap/issues"
