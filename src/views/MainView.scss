@@ -1,0 +1,31 @@
+.main-view-container {
+  background-image: url(https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=2343155727,2146436255&fm=27&gp=0.jpg);
+  text-align: center;
+  height: 100vh;
+  .blackboard {
+    background-color: rgba(0,0,0,.7);
+    height: 100vh;
+    p {
+      color: #e9e9e9;
+    }
+    .tab-group {
+      margin-top: 20px;
+      .tab {
+        display: inline-block;
+        width: 100px;
+        height: 60px;
+        line-height: 60px;
+        border: 2px solid #e9e9e9;
+        border-radius: 60px;
+        margin: 0 12px;
+        color: #e9e9e9;
+        transition: .1s;
+      }
+      .btn:hover, .active {
+        background-color: #e9e9e9;
+        color: #2d2d2d;
+      }
+    }
+  }
+  
+}
