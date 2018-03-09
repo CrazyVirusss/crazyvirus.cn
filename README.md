@@ -1,11 +1,11 @@
-# pop-tap
-🕹a simple game use Popmotion
+# crazyvirus.cn
+🌃 My self workspace.
 
 # quick start
 ```zsh
-git clone git@github.com:CrazyVirusss/pop-tap.git
+git clone git@github.com:CrazyVirusss/crazyvirus.cn.git
 
-cd pop-tap && yarn
+cd crazyvirus.cn && yarn
 
 yarn start
 ```
