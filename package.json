@@ -6,19 +6,19 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
-    "prdbuild": "cross-env NODE_ENV=production parcel build index.html -d build/output",
-    "build": "parcel build index.html -d build/output"
+    "prdbuild": "cross-env NODE_ENV=production parcel build index.html -d build/output --public-url ./",
+    "build": "parcel build index.html -d build/output --public-url ./"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/CrazyVirusss/pop-tap.git"
+    "url": "git+https://github.com/CrazyVirusss/crazyvirus.cn.git"
   },
   "author": "CrazyVirusss <specialweiyu@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/CrazyVirusss/pop-tap/issues"
+    "url": "https://github.com/CrazyVirusss/crazyvirus.cn/issues"
   },
-  "homepage": "https://github.com/CrazyVirusss/pop-tap#readme",
+  "homepage": "https://github.com/CrazyVirusss/crazyvirus.cn#readme",
   "dependencies": {
     "autoprefixer": "^8.1.0",
     "history": "^4.7.2",
