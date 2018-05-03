@@ -11,6 +11,8 @@ export default class PullToRefresh extends Component {
       distance: 0,
       height: 60,
       status: 0, // 1 start 2 ready 3 loading 4 end
+      clientY: 0,
+      pageY: 0,
     }
   }
 
@@ -29,19 +31,20 @@ export default class PullToRefresh extends Component {
   }
 
   handleTouchMove = (e) => {
+    const { status, from } = this.state
     const touch = e.touches[0]
     // console.log(touch)
-    if (this.state.status > 0) {
+    if (status > 0) {
       e.preventDefault()
-
-      // const distance = (touch.pageY - this.state.from) / 2.5
-      const distance = touch.clientY - this.state.from
-      // console.log(distance)
+      // const distance = (touch.pageY - from) / 2.5
+      const distance = (touch.clientY - from) / 2.5
 
       this.setState({
         distance: distance > 70 ? 70 : distance,
         // distance,
         status: distance > 70 ? 2 : 1,
+        clientY: touch.clientY,
+        pageY: touch.pageY,
       })
     }
   }
@@ -90,7 +93,7 @@ export default class PullToRefresh extends Component {
 
     const { children } = this.props
 
-    const { status, loading, distance, height } = this.state
+    const { status, loading, distance, height, clientY, pageY, from } = this.state
 
     const contentTranslate = 'translate3d(0, ' + distance + 'px, 0)'
 
@@ -131,7 +134,13 @@ export default class PullToRefresh extends Component {
           <br/>
           distance: {distance}
           <br/>
+          from: {from}
+          <br/>
           status: {status}
+          <br/>
+          clientY: {clientY}
+          <br/>
+          pageY: {pageY}
         </div>
       </div>
     )
