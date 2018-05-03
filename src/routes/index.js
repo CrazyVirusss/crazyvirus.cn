@@ -1,12 +1,22 @@
-import MainView from '../views/MainView'
-import HomePage from '../views/HomePage'
-import Pubg from '../views/Pubg'
-import Ori from '../views/Ori'
-import ToTheMoon from '../views/ToTheMoon'
+import {
+  MainView,
+  HomePage,
+  PullToRefresh,
+} from '../views'
+import {
+  Pubg,
+  Ori,
+  ToTheMoon,
+} from '../component'
 
 // To see more options in https://github.com/theKashey/react-imported-component
 
 export default [
+  {
+    path: '/refresh',
+    component: PullToRefresh,
+    childRoutes: []
+  },
   {
     path: '/',
     component: MainView,
@@ -26,7 +36,7 @@ export default [
       {
         path: '*',
         component: ToTheMoon
-      }
+      },
     ]
-  }
+  },
 ]

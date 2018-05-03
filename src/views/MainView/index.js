@@ -4,7 +4,7 @@ import { renderRoutes } from 'react-router-config'
 import { NavLink as Link } from 'react-router-dom'
 import { inject, observer } from "mobx-react"
 // import { replace } from 'react-router-redux'
-import './MainView.scss'
+import './index.scss'
 
 const links = [
   {
@@ -56,7 +56,7 @@ export default class MainView extends React.Component {
             {
               links.map(({ id, link, text }, index) => (
                 <div key={index}
-                  className={ active === index ? 'tab active' : 'tab' }
+                  className={active === index ? 'tab active' : 'tab'}
                   onClick={this.routerToTargetTab.bind(this, { index, link })}>
                   {text}
                 </div>
