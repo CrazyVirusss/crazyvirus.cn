@@ -25,6 +25,12 @@ const links = [
     text: '绝地求生',
     url: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1520590743479&di=ae1c62ce0b878013a6e3f910db0faaf8&imgtype=0&src=http%3A%2F%2Fi0.hdslb.com%2Fbfs%2Farchive%2Fe391a4194926c3ac8256b76bc013d74bc1a16cc7.jpg'
   },
+  {
+    id: 4,
+    link: '/refresh',
+    text: '下拉刷新',
+    url: 'http://c.hiphotos.baidu.com/image/pic/item/e1fe9925bc315c609e11bbb781b1cb13485477e6.jpg'
+  }
 ]
 
 @inject("store")
