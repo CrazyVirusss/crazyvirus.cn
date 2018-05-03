@@ -9,10 +9,12 @@ export default class PullToRefresh extends Component {
     this.state = {
       from: 0,
       distance: 0,
-      height: 55,
+      height: 45,
+      maxHeight: 50,
       status: 0, // 1 start 2 ready 3 loading 4 end
       clientY: 0,
       pageY: 0,
+      watch: true,
     }
   }
 
@@ -31,17 +33,17 @@ export default class PullToRefresh extends Component {
   }
 
   handleTouchMove = (e) => {
-    const { status, from } = this.state
+    const { status, from, maxHeight } = this.state
     const { clientY } = e.touches[0]
     // console.log(touch)
-    if (status > 0 && clientY) {
+    if (status > 0 && clientY > 0) {
       e.preventDefault()
       
       const distance = clientY - from
 
       this.setState({
-        distance: distance > 60 ? 60 : distance,
-        status: distance > 60 ? 2 : 1,
+        distance: distance > maxHeight ? maxHeight : distance,
+        status: distance > maxHeight ? 2 : 1,
         clientY,
       })
     }
@@ -58,10 +60,9 @@ export default class PullToRefresh extends Component {
   }
 
   handleLoadingList() {
-    // this.steps2()
+    const { height } = this.state
 
-    this.setState({ status: 3, distance: 55 })
-
+    this.setState({ status: 3, distance: height })
     this.props.refresh(this.loadingSuccess.bind(this))
   }
 
@@ -91,7 +92,7 @@ export default class PullToRefresh extends Component {
 
     const { children } = this.props
 
-    const { status, loading, distance, height, clientY, from } = this.state
+    const { status, loading, distance, height, clientY, from, watch } = this.state
 
     const contentTranslate = 'translate3d(0, ' + distance + 'px, 0)'
 
@@ -127,17 +128,20 @@ export default class PullToRefresh extends Component {
           onTouchEnd={this.handleTouchEnd}>
           {children}
         </div>
-        <div className="control-list">
-          监控
-          <br/>
-          distance: {distance}
-          <br/>
-          from: {from}
-          <br/>
-          status: {status}
-          <br/>
-          clientY: {clientY}
-        </div>
+        {
+          watch &&
+          <div className="control-list">
+            监控
+          <br />
+            distance: {distance}
+            <br />
+            from: {from}
+            <br />
+            status: {status}
+            <br />
+            clientY: {clientY}
+          </div>
+        }
       </div>
     )
   }
