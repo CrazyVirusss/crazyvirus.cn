@@ -39,6 +39,7 @@ export default class PullToRefresh extends Component {
     // console.log(touch)
     if (status > 0 && clientY) {
       e.preventDefault()
+      e.stopPropagation()
       
       const distance = clientY - from
 
