@@ -126,6 +126,13 @@ export default class PullToRefresh extends Component {
           onTouchEnd={this.handleTouchEnd}>
           {children}
         </div>
+        <div className="control-list">
+          监控
+          <br/>
+          distance: {distance}
+          <br/>
+          status: {status}
+        </div>
       </div>
     )
   }

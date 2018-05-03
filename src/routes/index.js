@@ -12,14 +12,14 @@ import {
 // To see more options in https://github.com/theKashey/react-imported-component
 
 export default [
-  {
-    path: '/refresh',
-    component: PullToRefresh,
-    childRoutes: []
-  },
+  // {
+  //   path: '/refresh',
+  //   component: PullToRefresh,
+  //   childRoutes: []
+  // },
   {
     path: '/',
-    component: MainView,
+    component: PullToRefresh,
     childRoutes: [
       {
         path: '/tomoon',
