@@ -39,8 +39,8 @@ export default class PullToRefresh extends Component {
       // console.log(distance)
 
       this.setState({
-        // distance: distance > 70 ? 70 : distance
-        distance,
+        distance: distance > 70 ? 70 : distance,
+        // distance,
         status: distance > 70 ? 2 : 1,
       })
     }
