@@ -9,7 +9,7 @@ export default class PullToRefresh extends Component {
     this.state = {
       from: 0,
       distance: 0,
-      height: 60,
+      height: 55,
       status: 0, // 1 start 2 ready 3 loading 4 end
       clientY: 0,
       pageY: 0,
@@ -40,8 +40,8 @@ export default class PullToRefresh extends Component {
       const distance = clientY - from
 
       this.setState({
-        distance: distance > 70 ? 70 : distance,
-        status: distance > 70 ? 2 : 1,
+        distance: distance > 60 ? 60 : distance,
+        status: distance > 60 ? 2 : 1,
         clientY,
       })
     }
@@ -60,7 +60,7 @@ export default class PullToRefresh extends Component {
   handleLoadingList() {
     // this.steps2()
 
-    this.setState({ status: 3, distance: 60 })
+    this.setState({ status: 3, distance: 55 })
 
     this.props.refresh(this.loadingSuccess.bind(this))
   }
