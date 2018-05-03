@@ -69,17 +69,15 @@ export default class PullToRefresh extends Component {
   loadingSuccess() {
     this.setState({ loading: true, status: 4 }, () => {
       setTimeout(function () {
-        this.reset();
-      }.bind(this), 500);
+        this.reset()
+      }.bind(this), 500)
     })
   }
 
-  reset = () => {
-    const { distance } = this.state
-
+  reset() {
     this.setState({
       distance: 0,
-      status: 0
+      status: 0,
     })
   }
 
