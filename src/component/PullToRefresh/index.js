@@ -10,6 +10,7 @@ export default class PullToRefresh extends Component {
       from: 0,
       distance: 0,
       height: 45,
+      tagHeight: 45,
       maxHeight: 50,
       status: 0, // 1 start 2 ready 3 loading 4 end
       clientY: 0,
@@ -36,7 +37,7 @@ export default class PullToRefresh extends Component {
     const { status, from, maxHeight } = this.state
     const { clientY } = e.touches[0]
     // console.log(touch)
-    if (status > 0 && clientY > 0) {
+    if (status > 0 && clientY) {
       e.preventDefault()
       
       const distance = clientY - from
@@ -60,9 +61,10 @@ export default class PullToRefresh extends Component {
   }
 
   handleLoadingList() {
-    const { height } = this.state
+    const { tagHeight } = this.state
 
-    this.setState({ status: 3, distance: height })
+    this.setState({ status: 3, distance: tagHeight })
+
     this.props.refresh(this.loadingSuccess.bind(this))
   }
 
@@ -74,10 +76,12 @@ export default class PullToRefresh extends Component {
     })
   }
 
-  reset() {
+  reset = () => {
+    const { distance } = this.state
+
     this.setState({
       distance: 0,
-      status: 0,
+      status: 0
     })
   }
 
