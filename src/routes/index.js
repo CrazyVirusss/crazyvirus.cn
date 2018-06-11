@@ -2,6 +2,7 @@ import {
   MainView,
   HomePage,
   PullToRefresh,
+  DemoPage,
 } from '../views'
 import {
   Pubg,
@@ -19,7 +20,7 @@ export default [
   // },
   {
     path: '/',
-    component: PullToRefresh,
+    component: DemoPage,
     childRoutes: [
       {
         path: '/tomoon',

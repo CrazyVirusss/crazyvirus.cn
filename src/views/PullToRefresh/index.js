@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { PullToRefresh } from '../../component'
+import PullToRefresh from 'react-pull-to-refresh'
+// import immu from '../../utils/immutable'
 
 const range = (start, end) => new Array(end - start).fill(start).map((el, i) => start + i)
 
@@ -41,7 +42,10 @@ export default class Refresh extends Component {
 
     return (
       <div className='test-pull-to-refresh-container'>
-        <PullToRefresh refresh={this.getListItem}>
+        <PullToRefresh onRefresh={this.getListItem} style={{
+          textAlign: 'center'
+        }}>
+          <h3>Pull down to refresh</h3>
           <div>
             {
               list.map((val, index) => (
