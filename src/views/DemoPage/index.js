@@ -5,7 +5,7 @@ export default class DemoPage extends React.Component {
   render() {
     return (
       <div className="demo-page">
-        <SelfAudio/>
+        <SelfAudio autoPlay={true}/>
       </div>
     )
   }

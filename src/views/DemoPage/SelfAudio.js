@@ -32,7 +32,7 @@ export class SelfAudio extends React.Component {
       // 是否自动播放
       if (autoPlay) {
         audio.play();
-        this.setState({ isPlay: !!autoPlay });
+        this.setState({ isPlay: !!autoPlay, isPlay: true });
       }
     }
   }
