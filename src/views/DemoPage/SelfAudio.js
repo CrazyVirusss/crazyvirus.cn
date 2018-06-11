@@ -12,6 +12,27 @@ export class SelfAudio extends React.Component {
       allTime: 0,
       begin: 0
     };
+
+    this.audioAutoPlay = this.audioAutoPlay.bind(this);
+  }
+
+  componentDidMount() {
+    const { autoPlay } = this.props;
+    const audio = this.audio;
+
+    if (audio && autoPlay) {
+      document.addEventListener("DOMContentLoaded", this.audioAutoPlay, { once: true });
+      //--创建触摸监听，当浏览器打开页面时，触摸屏幕触发事件，进行音频播放
+      document.addEventListener("touchstart", this.audioAutoPlay, { once: true });
+    }
+  }
+
+  audioAutoPlay() {
+    const audio = this.audio;
+
+    audio.play();
+
+    document.addEventListener("WeixinJSBridgeReady", () => audio.play());
   }
 
   audioStatusChange() {
@@ -96,7 +117,7 @@ export class SelfAudio extends React.Component {
   handleTouchEnd(e) {
     const audio = this.audio;
     const { isPlay } = this.state;
-    console.log(isPlay);
+    // console.log(isPlay);
 
     if (isPlay) audio.play();
 
@@ -112,7 +133,7 @@ export class SelfAudio extends React.Component {
     const { pageX, target } = e.touches[0];
     const { width, left } = this.maxRangeEl.getBoundingClientRect();
     // console.log(pageX, left, width)
-    const currentTime = (pageX - left) / width * allTime;
+    const currentTime = ((pageX - left) / width) * allTime;
 
     this.audio.currentTime = currentTime;
     this.setState({ currentTime });
@@ -130,7 +151,7 @@ export class SelfAudio extends React.Component {
     const endTime = this.millisecondToDate(allTime);
 
     const currentRange = `${
-      currentTime > 0 ? currentTime / allTime * 100 : 0
+      currentTime > 0 ? (currentTime / allTime) * 100 : 0
     }%`;
 
     return (
